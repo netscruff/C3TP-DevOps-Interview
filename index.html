@@ -35,8 +35,6 @@
 					</p>
 				</section>
 
-				<section>Slide 3</section>
-
 				<section>
 					<section>
 						<h2>What is Mesos?</h2>
@@ -45,23 +43,154 @@
 						<p>Sharing across distributed applications and frameworks</p>
 					</section>
 					<section>
-						<h4>What Mesos is not</h4>
-						<p>test</p>
+						<h2>Mesos Arcitecture</h2>
+						<img data-src="http://mesos.apache.org/assets/img/documentation/architecture3.jpg">
+					</section>
+					<section>
+						<h2>Comparison to Kuberneties</h2>
+							<table>
+								<thead>
+									<tr>
+										<th></th>
+										<th>Kubernetes</th>
+										<th>Mesos(+Marathon)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Types of Workloads</td>
+										<td>Cloud native applications</td>
+										<td>Support for diverse kinds of workloads such as big data, cloud native apps etc.</td>
+									</tr>
+								</tbody>
+							</table>
+					</section>
+					<section>
+						<h2>Mesos frameworks</h2>
+						<ul>
+							<ul>
+								<li>Long Running Services</li>
+									<ul>
+										<li>Marathon - PaaS, ensures application is always on</li>
+									</ul>
+							</ul>
+							<ul>
+								<li>Big Data Processing</li>
+									<ul>
+										<li>Hadoop - MapReduce jobs</li>
+										<li>MPI - MPICH3 based implementation</li>
+										<li>Spark - general purpose cluster computing system</li>
+									</ul>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h2>Mesos frameworks</h2>
+						<ul>
+							<ul>
+								<li>Batch Scheduling</li>
+									<ul>
+										<li>Chronos - distributed job scheduler</li>
+										<li>Jenkins - CI server</li>
+									</ul>
+							</ul>
+							<ul>
+								<li>Data Storage</li>
+									<ul>
+										<li>Cassandra - performant and highly available distributed database</li>
+									</ul>
+							</ul>
+						</ul>
 					</section>
 				</section>
 
-				<section>Slide 3</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Page title
-
-						A test paragraph
-					</script>
+				<section>
+					<section data-background="#dddddd">
+						<h2>Organizations using Mesos</h2>
+						<img class="plain" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/300px-EBay_logo.svg.png">
+						<img class="plain" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/170px-Apple_logo_black.svg.png">
+						<br/>
+						<img class="plain" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/320px-PayPal.svg.png">
+						<img width="220" height="220" class="plain" data-src="http://design-guidelines.web.cern.ch/sites/design-guidelines.web.cern.ch/files/u6/CERN-logo.jpg">
+					</section>
+					<section>
+						<h2>Apple</h2>
+						<p>Mesos powers Siri</p>
+						<p>Custom scheduler and PaaS written by Apple</p>
+						<p>Runs across many thousands of nodes</p>
+					</section>
+					<section>
+						<h2>eBay</h2>
+						<p>Powers their CI infrastructure</p>
+						<p>Each developer has their own CI/Jenkins Master instance</p>
+						<p>Previous implementation resulted in VM sprwal</p>
+					</section>
+					<section>
+						<h2>CERN</h2>
+						<p>Looking into integrating CernVM-FS with Mesos</p>
+						<p>Solving issues with Docker container network congestion</p>
+						<p>Mesos cluster runs their CI system for building scientific software</p>
+					</section>
 				</section>
+
+				<section>
+					<section>
+						<h2>Integration Possibilities</h2>
+					</section>
+					<section>
+						<h2>Batch Processing</h2>
+						<p>Chronos</p>
+						<p>Go-Docker</p>
+					</section>
+					<section>
+						<h2>High Throughput Computing</h2>
+						<p>HTCondor</p>
+					</section>
+					<section>
+						<h2>Parallel Processing</h2>
+						<ul>
+							<li>Spark</li>
+							<ul>
+								<li>Native support for swift object storage</li>
+							</ul>
+							<li>Hadoop</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Continuous Integration</h2>
+						<ul>
+							<li>Jenkins</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Programming Notebooks</h2>
+						<ul>
+							<li>Jupyter</li>
+								<ul>
+									<li>Spark Cluster usage with pyspark</li>
+								</ul>
+							<li>RStudio</li>
+								<ul>
+									<li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Application Execution</h2>
+						<h3>Using Marathon Framework</h3>
+						<pre><code class="JSON" style="word-wrap: break-word;">POST /v2/apps</code></pre>
+						<pre><code class="JSON" style="word-wrap: break-word;">
+{
+	"id": "sample-app",
+	"cmd": "sleep 60",
+	"cpus": 0.25,
+	"mem": 32,
+	"instances": 1
+}
+						</code></pre>
 			</div>
 		</div>
-
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
@@ -69,6 +198,7 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+				transition: 'none',
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
