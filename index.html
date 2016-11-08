@@ -38,13 +38,24 @@
 				<section>
 					<section>
 						<h2>What is Mesos?</h2>
-						<p>Open-source cluster manager</p>
-						<p>Efficient resource isolation</p>
-						<p>Sharing across distributed applications and frameworks</p>
+                        <ul>
+                            <li>Open-source cluster manager</li>
+                            <li>Distributed system to run distributed applications</li>
+                            <li>Fine-grained resource sharing and isolation</li>
+                            <li>Sharing across distributed applications and frameworks</li>
+                        </ul>
 					</section>
 					<section>
 						<h2>Mesos Arcitecture</h2>
 						<img data-src="http://mesos.apache.org/assets/img/documentation/architecture3.jpg">
+					</section>
+					<section>
+						<h2>Statically Partitioned</h2>
+						<img data-src="https://opensource.com/sites/default/files/images/business-uploads/mesos_workload.png">
+					</section>
+					<section>
+						<h2>Resource Sharing Using Mesos</h2>
+						<img data-src="https://opensource.com/sites/default/files/images/business-uploads/mesos_cluster.png">
 					</section>
 					<section>
 						<h2>Comparison to Kuberneties</h2>
@@ -67,40 +78,38 @@
 					</section>
 					<section>
 						<h2>Mesos frameworks</h2>
-						<ul>
 							<ul>
-								<li>Long Running Services</li>
+								<li>Long Running Services
 									<ul>
 										<li>Marathon - PaaS, ensures application is always on</li>
 									</ul>
+								</li>
 							</ul>
 							<ul>
-								<li>Big Data Processing</li>
+								<li>Big Data Processing
 									<ul>
 										<li>Hadoop - MapReduce jobs</li>
 										<li>MPI - MPICH3 based implementation</li>
 										<li>Spark - general purpose cluster computing system</li>
 									</ul>
+								</li>
 							</ul>
-						</ul>
 					</section>
 					<section>
 						<h2>Mesos frameworks</h2>
-						<ul>
 							<ul>
-								<li>Batch Scheduling</li>
+								<li>Batch Scheduling
 									<ul>
 										<li>Chronos - distributed job scheduler</li>
 										<li>Jenkins - CI server</li>
 									</ul>
-							</ul>
-							<ul>
-								<li>Data Storage</li>
+								</li>
+								<li>Data Storage
 									<ul>
 										<li>Cassandra - performant and highly available distributed database</li>
 									</ul>
+								</li>
 							</ul>
-						</ul>
 					</section>
 				</section>
 
@@ -110,7 +119,7 @@
 						<img class="plain" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/300px-EBay_logo.svg.png">
 						<img class="plain" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/170px-Apple_logo_black.svg.png">
 						<br/>
-						<img class="plain" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/320px-PayPal.svg.png">
+						<img class="plain" data-src="https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg">
 						<img width="220" height="220" class="plain" data-src="http://design-guidelines.web.cern.ch/sites/design-guidelines.web.cern.ch/files/u6/CERN-logo.jpg">
 					</section>
 					<section>
@@ -153,10 +162,11 @@
 					<section>
 						<h2>Parallel Processing</h2>
 						<ul>
-							<li><a href="http://spark.apache.org/">Spark</a></li>
-							<ul>
-								<li><a href="http://spark.apache.org/docs/latest/storage-openstack-swift.html">Native support</a> for swift object storage</li>
-							</ul>
+							<li><a href="http://spark.apache.org/">Spark</a>
+								<ul>
+									<li><a href="http://spark.apache.org/docs/latest/storage-openstack-swift.html">Native support</a> for swift object storage</li>
+								</ul>
+							</li>
 							<li><a href="http://hadoop.apache.org/">Hadoop</a></li>
 						</ul>
 					</section>
@@ -169,13 +179,16 @@
 					<section>
 						<h2>Programming Notebooks</h2>
 						<ul>
-                            <li><a href="http://jupyter.org/">Jupyter</a></li>
+							<li><a href="http://jupyter.org/">Jupyter</a>
 								<ul>
-                                    <li>Spark Cluster usage with <a href="http://spark.apache.org/docs/0.9.0/python-programming-guide.html">pyspark</a></li>
+									<li>Spark Cluster usage with <a href="http://spark.apache.org/docs/0.9.0/python-programming-guide.html">pyspark</a></li>
 								</ul>
-                                <li><a href="https://www.rstudio.com/">RStudio</a></li>
+							</li>
+							<li><a href="https://www.rstudio.com/">RStudio</a>
 								<ul>
-									<li>
+									<li>Spark Cluster usage with <a href="http://spark.rstudio.com/">sparklyr</a></li>
+								</ul>
+							</li>
 						</ul>
 					</section>
 				</section>
@@ -183,6 +196,7 @@
 					<section>
 						<h2>Application Execution</h2>
 						<h3>Using Marathon Framework</h3>
+                        <a href="https://mesosphere.github.io/marathon/docs/application-basics.html">Application Basics</a>
 						<pre><code class="JSON" style="word-wrap: break-word;">POST /v2/apps</code></pre>
 						<pre><code class="JSON" style="word-wrap: break-word;">
 {
@@ -193,6 +207,51 @@
 	"instances": 1
 }
 						</code></pre>
+					</section>
+					<section>
+						<h2>Application Execution</h2>
+						<h3>Using Marathon Framework</h3>
+                        <a href="https://mesosphere.github.io/marathon/docs/application-basics.html">Application Basics</a>
+						<pre><code class="JSON" style="word-wrap: break-word;">
+{
+    "id": "basic-1",
+    "cmd": "`chmod u+x cool-script.sh && ./cool-script.sh`",
+    "cpus": 0.1,
+    "mem": 10.0,
+    "instances": 1,
+    "uris": [
+        "https://example.com/app/cool-script.sh"
+    ]
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Docker Execution</h2>
+						<h3>Using Marathon Framework</h3>
+                        <a href="https://mesosphere.github.io/marathon/docs/application-basics.html">Application Basics</a>
+						<pre><code class="JSON" style="word-wrap: break-word;">
+{
+  "id": "basic-3",
+  "cmd": "python3 -m http.server 8080",
+  "cpus": 0.5,
+  "mem": 32.0,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "python:3",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 8080, "hostPort": 0 }
+      ]
+    }
+  }
+}
+					</code></pre>
+				</section>
+			</section>
+			<section>
+				<h1>Q & A</h1>
+			</section>
 			</div>
 		</div>
 		<script src="lib/js/head.min.js"></script>
