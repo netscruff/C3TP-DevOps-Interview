@@ -39,10 +39,12 @@
 					<section>
 						<h2>What is Mesos?</h2>
                         <ul>
+							<li>Started as a research project at UC Berkeley</li>
                             <li>Open-source cluster manager</li>
                             <li>Distributed system to run distributed applications</li>
                             <li>Fine-grained resource sharing and isolation</li>
                             <li>Sharing across distributed applications and frameworks</li>
+                            <li>Data center kernel</li>
                         </ul>
 					</section>
 					<section>
@@ -81,16 +83,16 @@
 							<ul>
 								<li>Long Running Services
 									<ul>
-										<li>Marathon - PaaS, ensures application is always on</li>
+										<li><a href="https://mesosphere.github.io/marathon/">Marathon</a> - PaaS, ensures application is always on</li>
 									</ul>
 								</li>
 							</ul>
 							<ul>
 								<li>Big Data Processing
 									<ul>
-										<li>Hadoop - MapReduce jobs</li>
-										<li>MPI - MPICH3 based implementation</li>
-										<li>Spark - general purpose cluster computing system</li>
+										<li><a href="https://github.com/mesos/hadoop">Hadoop</a> - MapReduce jobs</li>
+										<li><a href="https://github.com/apache/mesos/tree/master/mpi">MPI</a> - MPICH3 based implementation</li>
+										<li><a href="http://spark.apache.org/docs/latest/running-on-mesos.html">Spark</a> - general purpose cluster computing system</li>
 									</ul>
 								</li>
 							</ul>
@@ -100,13 +102,13 @@
 							<ul>
 								<li>Batch Scheduling
 									<ul>
-										<li>Chronos - distributed job scheduler</li>
-										<li>Jenkins - CI server</li>
+										<li><a href="https://mesos.github.io/chronos/">Chronos</a> - distributed job scheduler</li>
+										<li><a href="https://github.com/jenkinsci/mesos-plugin">Jenkins</a> - CI server</li>
 									</ul>
 								</li>
 								<li>Data Storage
 									<ul>
-										<li>Cassandra - performant and highly available distributed database</li>
+										<li><a href="https://mesosphere.github.io/cassandra-mesos/">Cassandra</a> - performant and highly available distributed database</li>
 									</ul>
 								</li>
 							</ul>
@@ -121,6 +123,11 @@
 						<br/>
 						<img class="plain" data-src="https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg">
 						<img width="220" height="220" class="plain" data-src="http://design-guidelines.web.cern.ch/sites/design-guidelines.web.cern.ch/files/u6/CERN-logo.jpg">
+					</section>
+					<section>
+						<h2>Twitter</h2>
+						<p>Mesos was incubated at Twitter</p>
+						<p>Treat the data center as an operating system</p>
 					</section>
 					<section>
 						<h2>Apple</h2>
@@ -190,6 +197,9 @@
 								</ul>
 							</li>
 						</ul>
+					</section>
+					<section>
+						<p><a href="https://vm-manage.oit.duke.edu/containers">Duke's VM Manage service</p>
 					</section>
 				</section>
 				<section>
